@@ -18,9 +18,16 @@ namespace CS315_Lab_7
         private string _Email;
         private string _Phone;
 
-        public Person()
+        public Person(string first, string last, string address, string city, string state, string zip, string email, string phone)
         {
-
+            _First = first;
+            _Last = last;
+            _Address = address;
+            _City = city;
+            _State = state;
+            _Zip = zip;
+            _Email = email;
+            _Phone = phone;
         }
         [Required]
        public string FirstName
@@ -30,27 +37,33 @@ namespace CS315_Lab_7
         }
 
         [Required]
+        [StringLength(20)]
         public string LastName
         {
             set { _Last = value; }
             get { return _Last; }
         }
 
+        [Required]
         public string Address
         {
             set { _Address = value; }
             get { return _Address; }
         }
+        [Required]
         public string City
         {
             set { _City = value; }
             get { return _City; }
         }
+        [Required]
         public string State
         {
             set { _State = value; }
             get { return _State; }
         }
+        [Required]
+        [Range(1000,99999)]
         public string Zip
         {
             set { _Zip = value; }
