@@ -114,19 +114,27 @@ namespace CS315_Lab_7
 
         private void buttonValidate_Click(object sender, EventArgs e)
         {
-            Person person = new Person(
-                textBoxFirstName.Text,
-                textBoxLastName.Text,
-                textBoxAddress.Text,
-                textBoxCity.Text,
-                textBoxState.Text,
-                textBoxZip.Text,
-                textBoxEmail.Text,
-                textBoxPhone.Text);
-
+            Person person;
+            errorProvider4.Clear();
+            if(textBoxResume.Text == null || textBoxResume.Text == "")
+            {
+                errorProvider1.SetError(textBoxResume, "Please select a resume");
+                return;
+            }
+            person = new Person(
+                first: textBoxFirstName.Text.Trim(),
+                last: textBoxLastName.Text.Trim(),
+                address: textBoxAddress.Text.Trim(),
+                city: textBoxCity.Text.Trim(),
+                state: textBoxState.Text.Trim(),
+                zip: textBoxZip.Text.Trim(),
+                email: textBoxEmail.Text.Trim(),
+                phone: textBoxPhone.Text.Trim()) ; 
             ValidateName(person);
+            //MessageBox.Show((textBoxCity.Text == null || textBoxCity.Text == "")? "empty" : "not empty");
             ValidateAddress(person);
             ValidateContact(person);
+            
 
         }
         private void ValidateName(Person person)
@@ -204,20 +212,20 @@ namespace CS315_Lab_7
             bool isStateValid = Validator.TryValidateProperty(person.State, statecontext, stateResults);
             if (!isStateValid)
             {
-                errorProvider4.SetError(textBoxState, stateResults[0].ErrorMessage);
+                errorProvider5.SetError(textBoxState, stateResults[0].ErrorMessage);
             }
             else
             {
-                errorProvider4.Clear();
+                errorProvider5.Clear();
             }
             bool isZipValid = Validator.TryValidateProperty(person.Zip, zipcontext, zipResults);
             if (!isZipValid)
             {
-                errorProvider4.SetError(textBoxZip, zipResults[0].ErrorMessage);
+                errorProvider6.SetError(textBoxZip, zipResults[0].ErrorMessage);
             }
             else
             {
-                errorProvider4.Clear();
+                errorProvider6.Clear();
             }
         }
         private void ValidateContact(Person person)

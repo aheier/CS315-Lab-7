@@ -29,14 +29,14 @@ namespace CS315_Lab_7
             _Email = email;
             _Phone = phone;
         }
-        [Required]
+        [Required()]
        public string FirstName
         {
             set { _First = value;  }
             get { return _First; }
         }
 
-        [Required]
+        [Required()]
         [StringLength(20)]
         public string LastName
         {
@@ -44,25 +44,25 @@ namespace CS315_Lab_7
             get { return _Last; }
         }
 
-        [Required]
+        [Required()]
         public string Address
         {
             set { _Address = value; }
             get { return _Address; }
         }
-        [Required]
+        [Required()]
         public string City
         {
             set { _City = value; }
             get { return _City; }
         }
-        [Required]
+        [Required()]
         public string State
         {
             set { _State = value; }
             get { return _State; }
         }
-        [Required]
+        [Required()]
         [Range(1000,99999)]
         public string Zip
         {
@@ -70,14 +70,15 @@ namespace CS315_Lab_7
             get { return _Zip; }
         }
 
-        [Required]
+        [Required()]
+        [EmailAddress]
         public string Email
         {
             set { _Email = value; }
             get { return _Email; }
         }
 
-        [Required]
+        [Required()]
         public string Phone
         {
             set { _Phone = value; }
