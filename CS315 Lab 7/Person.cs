@@ -30,9 +30,9 @@ namespace CS315_Lab_7
             _Phone = phone;
         }
         [Required()]
-       public string FirstName
+        public string FirstName
         {
-            set { _First = value;  }
+            set { _First = value; }
             get { return _First; }
         }
 
@@ -63,7 +63,7 @@ namespace CS315_Lab_7
             get { return _State; }
         }
         [Required()]
-        [Range(1000,99999)]
+        [Range(1000, 99999)]
         public string Zip
         {
             set { _Zip = value; }
@@ -79,6 +79,7 @@ namespace CS315_Lab_7
         }
 
         [Required()]
+     //   [RegularExpression(@"\([0-9]{3}\)-[0-9]{3}-[0-9]{3}")]
         public string Phone
         {
             set { _Phone = value; }
